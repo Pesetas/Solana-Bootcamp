@@ -10,13 +10,16 @@ import { ShyftApiService } from './shyft-api-service';
   template: `
     <section class="px-16 py-24 bg-white bg-opacity-5">
       <h2 class="text-center text-3xl">Saldo de tu Wallet</h2>
-      @if (account()) {
+      @if (!account()) {
+        <div class="top-16 left-16 flex justify-center items-center gap-4">
+          <p>Conecta tu wallet a ver si salimos de pobres</p>
+        </div>
+      } @else {
         <div class="top-16 left-16 flex justify-center items-center gap-4">
           <img [src]="account()?.info?.image" class="w-8 h-8" />
           <p class="text-xl">{{ account()?.balance }}</p>
         </div>
       }
-      <p class="text-center ">A ver si salimos de pobres</p>
     </section>
     <solana-features-section-bc></solana-features-section-bc>
   `,
