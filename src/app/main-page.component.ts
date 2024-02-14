@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { FeatureSectionComponent } from './feature-section.component';
-import { HeroSectionComponent } from './hero-section.component';
+import { WelcomeSectionComponent } from './welcome-section.component';
 
 @Component({
   selector: 'solana-home-bc',
   template: `
-    <solana-hero-section-bc></solana-hero-section-bc>
+    <solana-welcome-section-bc></solana-welcome-section-bc>
     <solana-features-section-bc></solana-features-section-bc>
   `,
-  imports: [HeroSectionComponent, FeatureSectionComponent],
+  imports: [WelcomeSectionComponent, FeatureSectionComponent],
   standalone: true,
 })
-export class HomePageComponent {}
+export class MainPageComponent {}
