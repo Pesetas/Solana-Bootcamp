@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FeatureSectionComponent } from './feature-section.component';
+import { FeaturesSectionComponent } from './features-section.component';
 import { WelcomeSectionComponent } from './welcome-section.component';
 
 @Component({
@@ -8,7 +8,7 @@ import { WelcomeSectionComponent } from './welcome-section.component';
     <solana-welcome-section-bc></solana-welcome-section-bc>
     <solana-features-section-bc></solana-features-section-bc>
   `,
-  imports: [WelcomeSectionComponent, FeatureSectionComponent],
+  imports: [WelcomeSectionComponent, FeaturesSectionComponent],
   standalone: true,
 })
 export class MainPageComponent {}

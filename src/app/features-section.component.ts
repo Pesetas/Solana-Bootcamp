@@ -13,4 +13,4 @@ import { Component } from '@angular/core';
   `,
   standalone: true,
 })
-export class FeatureSectionComponent {}
+export class FeaturesSectionComponent {}

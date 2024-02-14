@@ -2,12 +2,14 @@ import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { WalletStore } from '@heavy-duty/wallet-adapter';
 import { computedAsync } from 'ngxtension/computed-async';
+import { FeaturesSectionComponent } from './features-section.component';
 import { ShyftApiService } from './shyft-api-service';
+
 @Component({
   selector: 'solana-balance-bc',
   template: `
     <section class="px-16 py-24 bg-white bg-opacity-5">
-      <h2 class="text-center text-3xl">Saldo</h2>
+      <h2 class="text-center text-3xl">Saldo de tu Wallet</h2>
       @if (account()) {
         <div class="top-16 left-16 flex justify-center items-center gap-4">
           <img [src]="account()?.info?.image" class="w-8 h-8" />
@@ -16,8 +18,10 @@ import { ShyftApiService } from './shyft-api-service';
       }
       <p class="text-center ">A ver si salimos de pobres</p>
     </section>
+    <solana-features-section-bc></solana-features-section-bc>
   `,
   standalone: true,
+  imports: [FeaturesSectionComponent],
 })
 export class BalancePageComponent {
   private readonly _shyftApiService = inject(ShyftApiService);
