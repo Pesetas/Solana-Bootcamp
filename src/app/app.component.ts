@@ -23,6 +23,9 @@ import { HdWalletMultiButtonComponent } from '@heavy-duty/wallet-adapter-materia
           <li>
             <a [routerLink]="['saldo']" mat-raised-button>Saldo</a>
           </li>
+          <li>
+            <a [routerLink]="['historial']" mat-raised-button>Historial</a>
+          </li>
         </ul>
       </nav>
     </header>
