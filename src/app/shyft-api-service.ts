@@ -24,7 +24,7 @@ export class ShyftApiService {
       .get<{
         result: { balance: number; info: { image: string } };
       }>(url.toString(), { headers: this._header })
-      .pipe(map(({ result }) => result));
+      .pipe(map((response) => response.result));
   }
 
   getTransactions(publicKey: string | undefined | null) {
@@ -39,9 +39,16 @@ export class ShyftApiService {
     url.searchParams.append('tx_num', '5');
 
     return this._httpClient
-      .get<{
-        result: { timestamp: string };
-      }>(url.toString(), { headers: this._header })
-      .pipe(map(({ result }) => result));
+      .get<{ result: { fee: number; timestamp: string }[] }>(url.toString(), {
+        headers: this._header,
+      })
+      .pipe(
+        map(({ result }) =>
+          result.map((transaction) => ({
+            fee: transaction.fee,
+            timestamp: transaction.timestamp,
+          })),
+        ),
+      );
   }
 }
