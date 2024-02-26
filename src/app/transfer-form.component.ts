@@ -78,7 +78,7 @@ export interface TransferFormPayload {
       </mat-form-field>
     </form>
 
-    <form #form="ngForm" class="w-[400px]">
+    <form #form="ngForm" class="w-[400px]" (ngSubmit)="onSubmitForm(form)">
       <mat-form-field appearance="fill" class="w-full mb-4">
         <mat-label>Destinatario</mat-label>
         <input
@@ -128,6 +128,7 @@ export class TransferFormComponent {
     ) {
       console.error('El formulario es inválido');
     } else {
+      console.log('formulario válido');
       this.submitForm.emit({
         amount: this.model.amount,
         memo: this.model.memo,

@@ -1,9 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatAnchor } from '@angular/material/button';
-import { MatDialog } from '@angular/material/dialog';
+
 import { RouterModule } from '@angular/router';
 import { HdWalletMultiButtonComponent } from '@heavy-duty/wallet-adapter-material';
-import { TransferModalComponent } from './transfer-modal.component';
 
 @Component({
   standalone: true,
@@ -31,13 +30,7 @@ import { TransferModalComponent } from './transfer-modal.component';
 
     <main>
       <router-outlet></router-outlet>
-      <button (click)="onTransfer()">Transferir</button>
     </main>
   `,
 })
-export class AppComponent {
-  private readonly _matDialog = inject(MatDialog);
-  onTransfer() {
-    this._matDialog.open(TransferModalComponent);
-  }
-}
+export class AppComponent {}
